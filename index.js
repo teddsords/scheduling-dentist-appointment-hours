@@ -4,7 +4,7 @@ const closeWeekday = 18;
 const closeSaturday = 14;
 
 let day = 1; //d.getDay();
-let hours = 14; //d.getHours();
+let hours = 11; //d.getHours();
 let minutes = 05; //d.getMinutes();
 let arraySchedule;
 
@@ -54,23 +54,22 @@ function generateSchedule(hours, minutes, closeHour)
         minutes = 30;
       }
     }
-    stringSchedule = hours + ":" + (minutes === 0? '00': minutes);
+    stringSchedule = (i + 1) + ": " + hours + ":" + (minutes === 0? '00': minutes);
     arrayHours.push(stringSchedule)
   }
   return arrayHours;
 }
+
 
 if (day === 0)  // Verifying if day of the week is Sunday
   console.log("We are closed on Sundays");
 else if (day === 6) // Verifying if day of the week is Saturday
 {
   arraySchedule = generateHours(openWeekday, closeSaturday, hours, minutes);
-
   console.log(arraySchedule);
 }
 else   // Verifying if day of the week is a weekday
 {
   arraySchedule = generateHours(openWeekday, closeWeekday, hours, minutes);
-
   console.log(arraySchedule);
 }
