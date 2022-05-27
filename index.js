@@ -3,10 +3,11 @@ const openWeekday = 8;
 const closeWeekday = 18;
 const closeSaturday = 14;
 
-let day = 1; //d.getDay();
-let hours = 11; //d.getHours();
-let minutes = 05; //d.getMinutes();
+let day = 1//d.getDay();
+let hours = d.getHours() -3 ;
+let minutes = 5//d.getMinutes();
 let arraySchedule;
+
 
 function generateHours(openHour, closeHour, hours, minutes)
 {
@@ -28,7 +29,7 @@ function generateHours(openHour, closeHour, hours, minutes)
   {
     hours = openHour;
     minutes = 30;
-
+    
     arrayHours = generateSchedule(hours, minutes, closeHour);
   }
   return arrayHours;
@@ -54,7 +55,7 @@ function generateSchedule(hours, minutes, closeHour)
         minutes = 30;
       }
     }
-    stringSchedule = (i + 1) + ": " + hours + ":" + (minutes === 0? '00': minutes);
+    stringSchedule = {id: (i + 1), horario: hours + ":" + (minutes === 0? '00': minutes)};
     arrayHours.push(stringSchedule)
   }
   return arrayHours;
